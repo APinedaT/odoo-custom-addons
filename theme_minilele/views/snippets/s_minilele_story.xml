@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Mini Lele Story
+        ===============
+        "Sobre Mini Lele" — 2-column with rotated photo frame + intro
+        paragraphs + script quote + stats row.
+    -->
+    <template id="s_minilele_story" name="Mini Lele · Historia">
+        <section class="s_minilele_story" data-snippet="s_minilele_story" data-name="Mini Lele Historia">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <div class="o_ml_story_art">
+                            <div class="o_ml_story_art_bg"/>
+                            <div class="o_ml_story_art_frame">
+                                <img src="/theme_minilele/static/src/img/logo.png" alt="Mini Lele Boutique"/>
+                                <span class="o_ml_stamp">Hecho con amor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="o_ml_eyebrow">Sobre Mini Lele</span>
+                        <h2 class="mt-3">Una boutique <span class="o_ml_script">con corazón</span></h2>
+                        <p>Mini Lele nació de la idea de que todos los niños son <b>pequeños reyes y princesitas</b>. Cada conjunto que llega a la boutique lo elegimos a mano: revisamos telas, costuras y detalles, porque sabemos que la piel de los más pequeños merece lo mejor.</p>
+                        <div class="o_ml_story_quote">"Vístela como la princesita que es ✨"</div>
+                        <p>Nos enfocamos en ropa exclusiva y de calidad, con piezas únicas que no encuentras en cualquier lado. Y porque sabemos que un regalo bonito empieza desde el empaque, todos nuestros pedidos se preparan listos para regalar — sin costo extra.</p>
+                        <div class="o_ml_stats">
+                            <div class="o_ml_stat">
+                                <div class="o_ml_stat_num">+5,000</div>
+                                <div class="o_ml_stat_lbl">Mamás felices</div>
+                            </div>
+                            <div class="o_ml_stat">
+                                <div class="o_ml_stat_num">+300</div>
+                                <div class="o_ml_stat_lbl">Piezas exclusivas</div>
+                            </div>
+                            <div class="o_ml_stat">
+                                <div class="o_ml_stat_num">4.9 ★</div>
+                                <div class="o_ml_stat_lbl">Calificación</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

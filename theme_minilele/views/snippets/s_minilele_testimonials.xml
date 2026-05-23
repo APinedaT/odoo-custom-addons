@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Mini Lele Testimonials
+        ======================
+        3 testimonial cards with 5-star rating + body + avatar + name + city.
+    -->
+    <template id="s_minilele_testimonials" name="Mini Lele · Testimonios">
+        <section class="s_minilele_testimonials" data-snippet="s_minilele_testimonials" data-name="Mini Lele Testimonios">
+            <div class="container">
+                <div class="o_ml_section_head">
+                    <span class="o_ml_eyebrow">Lo que dicen las mamás</span>
+                    <h2 class="mt-3">Mamás que ya son parte</h2>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="o_ml_testimonial">
+                            <div class="o_ml_stars">
+                                <i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/>
+                            </div>
+                            <p class="o_ml_testimonial_body">El vestido le quedó precioso a mi niña y llegó empacado como regalo, con su moño y todo. ¡Mil gracias! Volveré a comprar seguro 💕</p>
+                            <div class="o_ml_testimonial_who">
+                                <div class="o_ml_avatar" style="background: var(--ml-candy-pink);">M</div>
+                                <div class="o_ml_who_meta">
+                                    <span class="o_ml_who_name">Mariana G.</span>
+                                    <span class="o_ml_who_city">Guadalajara, Jal.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="o_ml_testimonial">
+                            <div class="o_ml_stars">
+                                <i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/>
+                            </div>
+                            <p class="o_ml_testimonial_body">Compré el conjunto de bautizo para mi sobrino y todos los invitados me preguntaron de dónde era. La tela está hermosa y el bordado, divino.</p>
+                            <div class="o_ml_testimonial_who">
+                                <div class="o_ml_avatar" style="background: var(--ml-candy-blue);">P</div>
+                                <div class="o_ml_who_meta">
+                                    <span class="o_ml_who_name">Paola R.</span>
+                                    <span class="o_ml_who_city">CDMX</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="o_ml_testimonial">
+                            <div class="o_ml_stars">
+                                <i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/><i class="fa fa-star"/>
+                            </div>
+                            <p class="o_ml_testimonial_body">Atención de 10. Me ayudaron a elegir la talla por WhatsApp y todo llegó al día siguiente. Mi princesita amó su tutú arcoíris 🌈</p>
+                            <div class="o_ml_testimonial_who">
+                                <div class="o_ml_avatar" style="background: var(--ml-candy-teal);">S</div>
+                                <div class="o_ml_who_meta">
+                                    <span class="o_ml_who_name">Sofía V.</span>
+                                    <span class="o_ml_who_city">Monterrey, N.L.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

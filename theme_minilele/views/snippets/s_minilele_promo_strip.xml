@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Mini Lele Promo Strip
+        =====================
+        Gold ribbon w/ 4 benefit cells (envío, regalo, cambios, pago).
+    -->
+    <template id="s_minilele_promo_strip" name="Mini Lele · Tira de beneficios">
+        <section class="s_minilele_promo_strip" data-snippet="s_minilele_promo_strip" data-name="Mini Lele Beneficios">
+            <div class="container">
+                <div class="o_ml_promo_inner">
+                    <div class="o_ml_promo_cell">
+                        <span class="o_ml_promo_icon"><i class="fa fa-truck"/></span>
+                        <span class="o_ml_promo_text">
+                            <span class="o_ml_promo_title">Envío gratis</span>
+                            <span class="o_ml_promo_sub">En compras desde $500</span>
+                        </span>
+                    </div>
+                    <div class="o_ml_promo_div"/>
+                    <div class="o_ml_promo_cell">
+                        <span class="o_ml_promo_icon"><i class="fa fa-gift"/></span>
+                        <span class="o_ml_promo_text">
+                            <span class="o_ml_promo_title">Empaque de regalo</span>
+                            <span class="o_ml_promo_sub">Sin costo, listo para sorprender</span>
+                        </span>
+                    </div>
+                    <div class="o_ml_promo_div"/>
+                    <div class="o_ml_promo_cell">
+                        <span class="o_ml_promo_icon"><i class="fa fa-refresh"/></span>
+                        <span class="o_ml_promo_text">
+                            <span class="o_ml_promo_title">Cambios fáciles</span>
+                            <span class="o_ml_promo_sub">30 días para cambios y devoluciones</span>
+                        </span>
+                    </div>
+                    <div class="o_ml_promo_div"/>
+                    <div class="o_ml_promo_cell">
+                        <span class="o_ml_promo_icon"><i class="fa fa-shield"/></span>
+                        <span class="o_ml_promo_text">
+                            <span class="o_ml_promo_title">Pago seguro</span>
+                            <span class="o_ml_promo_sub">Tarjeta, OXXO y transferencia</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

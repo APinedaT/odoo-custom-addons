@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Mini Lele Newsletter
+        ====================
+        Stitched-pink-border card with headline + email form.
+        Uses Odoo's mass_mailing newsletter form action.
+    -->
+    <template id="s_minilele_newsletter" name="Mini Lele · Newsletter">
+        <section class="s_minilele_newsletter" data-snippet="s_minilele_newsletter" data-name="Mini Lele Newsletter">
+            <div class="container">
+                <div class="o_ml_newsletter_card">
+                    <div>
+                        <h3>¡Únete a la realeza ✨</h3>
+                        <p>Recibe -10% en tu primera compra y entérate de cada nueva colección antes que nadie.</p>
+                    </div>
+                    <form action="/website_mass_mailing/subscribe" method="POST" class="o_newsletter_form">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token() if request else ''"/>
+                        <input type="email" name="email" placeholder="tu@correo.com" required="required"/>
+                        <button type="submit" class="btn btn-primary">Suscribirme</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

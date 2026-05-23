@@ -1,0 +1,118 @@
+// =========================================================================
+// Mini Lele Boutique — Primary variables
+// -------------------------------------------------------------------------
+// Appended to `web._assets_primary_variables` so Odoo's SCSS variables
+// are defined before we merge into them.
+// =========================================================================
+
+// -------------------------------------------------------------------------
+// 1. RAW BRAND COLORS (the candy palette from the logo)
+// -------------------------------------------------------------------------
+$minilele-candy-blue:    #4FBFEF;
+$minilele-candy-yellow:  #FFD23A;
+$minilele-candy-pink:    #F06AAA;
+$minilele-candy-green:   #82D24E;
+$minilele-candy-purple:  #B991DD;
+$minilele-candy-teal:    #4FCDC8;
+
+$minilele-gold-100:      #FFF1C8;
+$minilele-gold-300:      #F5D480;
+$minilele-gold-500:      #E5B554;
+$minilele-gold-700:      #B0832C;
+$minilele-gold-900:      #6B4D14;
+
+$minilele-cream-50:      #FFFCF5;
+$minilele-cream-100:     #FFF6E8;
+$minilele-cream-200:     #FBEBD2;
+$minilele-cream-300:     #EFD9B8;
+
+$minilele-ink-900:       #2B2350;
+$minilele-ink-700:       #4B4180;
+$minilele-ink-500:       #7A72A6;
+$minilele-ink-300:       #B8B2D2;
+
+$minilele-border-pink:   #F7C8DD;
+
+// -------------------------------------------------------------------------
+// 2. FONTS
+// -------------------------------------------------------------------------
+// Register custom Google Fonts. The actual @import lives in fonts.scss
+// (frontend bundle); here we just declare them so the website builder lists
+// them in the font picker.
+// -------------------------------------------------------------------------
+$o-theme-font-configs-custom: (
+    'Fredoka':  ( 'family': ('Fredoka',  sans-serif), 'url': 'Fredoka:300,400,500,600,700' ),
+    'Nunito':   ( 'family': ('Nunito',   sans-serif), 'url': 'Nunito:400,600,700,800,900' ),
+    'Pacifico': ( 'family': ('Pacifico', cursive),    'url': 'Pacifico' ),
+);
+
+// Map fonts to roles. Odoo reads these to wire up h1, body, buttons, etc.
+$o-theme-font-configs: map-merge(
+    $o-theme-font-configs,
+    $o-theme-font-configs-custom
+);
+
+$o-theme-headings-font:        'Fredoka', sans-serif;
+$o-theme-font:                 'Nunito', sans-serif;
+$o-theme-buttons-font:         'Nunito', sans-serif;
+$o-theme-navbar-font:          'Nunito', sans-serif;
+
+// -------------------------------------------------------------------------
+// 3. BOOTSTRAP VARIABLE OVERRIDES
+// -------------------------------------------------------------------------
+// Generous pill radii on buttons + soft candy shadows.
+// -------------------------------------------------------------------------
+$border-radius:                1rem;       // 16px — default
+$border-radius-sm:             0.625rem;   // 10px
+$border-radius-lg:             1.5rem;     // 24px
+$border-radius-pill:           999px;
+
+// Button radius: always pill
+$btn-border-radius:            $border-radius-pill;
+$btn-border-radius-sm:         $border-radius-pill;
+$btn-border-radius-lg:         $border-radius-pill;
+
+// Card radius: 24px
+$card-border-radius:           $border-radius-lg;
+$card-border-color:            $minilele-cream-300;
+
+// Inputs: 16px rounded
+$input-border-radius:          $border-radius;
+$input-border-radius-sm:       $border-radius-sm;
+$input-border-radius-lg:       $border-radius-lg;
+$input-border-color:           $minilele-cream-300;
+$input-focus-border-color:     $minilele-candy-pink;
+$input-focus-box-shadow:       0 0 0 0.2rem rgba(240, 106, 170, 0.25);
+
+// Body
+$body-bg:                      $minilele-cream-50;
+$body-color:                   $minilele-ink-900;
+
+// Headings
+$headings-font-family:         $o-theme-headings-font;
+$headings-font-weight:         700;
+$headings-color:               $minilele-ink-900;
+$headings-line-height:         1.15;
+
+// Body
+$font-family-base:             $o-theme-font;
+$font-weight-base:             400;
+$line-height-base:             1.55;
+
+// Selection
+$component-active-bg:          $minilele-candy-pink;
+$component-active-color:       #fff;
+
+// Links
+$link-color:                   $minilele-candy-pink;
+$link-hover-color:             darken($minilele-candy-pink, 8%);
+$link-decoration:              none;
+$link-hover-decoration:        underline;
+
+// -------------------------------------------------------------------------
+// 4. ODOO-SPECIFIC OVERRIDES
+// -------------------------------------------------------------------------
+// Heading size multipliers (relative to $font-size-base, which is ~1rem)
+$o-theme-h1-font-size-multiplier: 3;
+$o-theme-h2-font-size-multiplier: 2.5;
+$o-theme-h3-font-size-multiplier: 2;

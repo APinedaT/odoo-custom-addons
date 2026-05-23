@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120">
+  <rect width="200" height="120" fill="#FFF6E8"></rect>
+  <rect x="10" y="10" width="180" height="100" rx="14" fill="#fff" stroke="#F06AAA" stroke-width="2" stroke-dasharray="4 3"></rect>
+  <text x="100" y="55" text-anchor="middle" font-family="&#39;Fredoka&#39;, sans-serif" font-weight="700" font-size="18" fill="#2B2350">Mini Lele</text>
+  <text x="100" y="78" text-anchor="middle" font-family="&#39;Nunito&#39;, sans-serif" font-weight="700" font-size="11" fill="#F06AAA" letter-spacing="2">HERO</text>
+  <circle cx="40" cy="100" r="4" fill="#F06AAA"></circle>
+  <circle cx="55" cy="100" r="4" fill="#FFD23A"></circle>
+  <circle cx="70" cy="100" r="4" fill="#4FBFEF"></circle>
+</svg>

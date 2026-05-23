@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Layout customizations
+        =====================
+        - Adds a "top strip" promo bar above the header.
+        - Tweaks the footer copyright wording.
+        - You can edit visually in the Odoo Website builder; these XML
+          inherits just set sane defaults on theme install.
+    -->
+
+    <!-- Google Fonts — loaded via <link> so the browser sees it at the top of the page,
+         not buried in the middle of the concatenated CSS bundle. -->
+    <template id="layout_fonts" inherit_id="website.layout" name="Mini Lele · Google Fonts">
+        <xpath expr="//head" position="inside">
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;family=Nunito:wght@400;600;700;800;900&amp;family=Pacifico&amp;display=swap"/>
+        </xpath>
+    </template>
+
+    <!-- Promo top strip injected before the header -->
+    <!-- <template id="layout_top_strip" inherit_id="website.layout" name="Mini Lele · Top promo strip">
+        <xpath expr="//header" position="before">
+            <div class="o_ml_top_strip">
+                ✨ Envío gratis en compras desde $500 · Empacamos como regalo 🎁
+            </div>
+        </xpath>
+    </template> -->
+
+</odoo>

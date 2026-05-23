@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Mini Lele Hero
+        ==============
+        Big cream-gradient hero with confetti ornaments, multi-color
+        headline, script kicker, lead paragraph, two CTAs, and a 3-up
+        trust badge row underneath.
+    -->
+    <template id="s_minilele_hero" name="Mini Lele · Hero">
+        <section class="s_minilele_hero" data-snippet="s_minilele_hero" data-name="Mini Lele Hero">
+            <!-- Confetti ornaments -->
+            <span class="o_ml_orn" style="top:10%; left:6%; font-size:28px;">⭐</span>
+            <span class="o_ml_orn" style="top:48%; left:1%; font-size:20px; animation-delay:0.3s;">⭐</span>
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <span class="o_ml_eyebrow mb-3 d-inline-block">Nueva temporada · Otoño</span>
+                        <h1>Para tu<br/>pequeño <span class="pink">rey</span><br/>o <span class="blue">princesita</span></h1>
+                        <span class="o_ml_hero_script">¡bienvenida a la boutique!</span>
+                        <p class="lead">Ropa infantil exclusiva, elegida pieza por pieza para los más pequeños de la casa. Conjuntos, vestidos y zapatitos que les van a encantar.</p>
+                        <div class="d-flex flex-wrap gap-3 align-items-center mt-4">
+                            <a href="/shop" class="btn btn-primary btn-lg">
+                                Ver la colección
+                                <i class="fa fa-arrow-right ms-2"/>
+                            </a>
+                            <a href="/shop?attrib=sale" class="btn btn-secondary btn-lg">Rebajas hasta -30%</a>
+                        </div>
+
+                        <div class="o_ml_hero_badges">
+                            <div class="o_ml_hero_badge">
+                                <span class="o_ml_icon_circle"><i class="fa fa-truck"/></span>
+                                <span class="o_ml_badge_text"><b>Envío gratis</b>desde $500</span>
+                            </div>
+                            <div class="o_ml_hero_badge">
+                                <span class="o_ml_icon_circle"><i class="fa fa-gift"/></span>
+                                <span class="o_ml_badge_text"><b>Empaque</b>de regalo</span>
+                            </div>
+                            <div class="o_ml_hero_badge">
+                                <span class="o_ml_icon_circle"><i class="fa fa-heart"/></span>
+                                <span class="o_ml_badge_text"><b>Hecho con amor</b>en México</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="o_ml_hero_art">
+                            <div class="o_ml_hero_art_bg"/>
+                            <img src="/theme_minilele/static/src/img/logo.png" alt="Mini Lele Boutique"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

@@ -1,0 +1,292 @@
+// =========================================================================
+// Mini Lele Boutique — Base theme styles
+// -------------------------------------------------------------------------
+// Header, footer, buttons, base typography, eCommerce (website_sale) bits.
+// =========================================================================
+
+// Brand color tokens (kept available as CSS custom properties on :root so
+// snippet authors can use them in inline styles in the website builder)
+:root {
+    --ml-candy-blue:    #4FBFEF;
+    --ml-candy-yellow:  #FFD23A;
+    --ml-candy-pink:    #F06AAA;
+    --ml-candy-green:   #82D24E;
+    --ml-candy-purple:  #B991DD;
+    --ml-candy-teal:    #4FCDC8;
+
+    --ml-gold-100:      #FFF1C8;
+    --ml-gold-300:      #F5D480;
+    --ml-gold-500:      #E5B554;
+    --ml-gold-700:      #B0832C;
+
+    --ml-cream-50:      #FFFCF5;
+    --ml-cream-100:     #FFF6E8;
+    --ml-cream-200:     #FBEBD2;
+    --ml-cream-300:     #EFD9B8;
+
+    --ml-ink-900:       #2B2350;
+    --ml-ink-700:       #4B4180;
+    --ml-ink-500:       #7A72A6;
+
+    --ml-border-pink:   #F7C8DD;
+
+    --ml-shadow-sm:     0 2px 6px rgba(75, 65, 128, 0.08);
+    --ml-shadow-md:     0 6px 18px rgba(75, 65, 128, 0.12);
+    --ml-shadow-lg:     0 16px 40px rgba(75, 65, 128, 0.18);
+    --ml-shadow-pink:   0 8px 24px rgba(240, 106, 170, 0.30);
+    --ml-shadow-gold:   0 6px 20px rgba(229, 181, 84, 0.45);
+    --ml-shadow-gloss:  inset 0 2px 0 rgba(255,255,255,0.55), inset 0 -3px 0 rgba(0,0,0,0.08);
+
+    --ml-font-display:  'Fredoka', sans-serif;
+    --ml-font-body:     'Nunito', sans-serif;
+    --ml-font-script:   'Pacifico', cursive;
+}
+
+// =========================================================================
+// BASE
+// =========================================================================
+body {
+    background: var(--ml-cream-50);
+    color: var(--ml-ink-900);
+    font-family: var(--ml-font-body);
+}
+
+::selection { background: var(--ml-candy-pink); color: #fff; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ml-font-display);
+    letter-spacing: -0.005em;
+}
+
+// =========================================================================
+// BUTTONS — candy gloss
+// =========================================================================
+.btn {
+    font-family: var(--ml-font-body);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.85rem 1.5rem;
+    transition: transform 160ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms ease;
+    &:hover { transform: translateY(-2px); }
+    &:active { transform: scale(0.97); }
+}
+
+.btn-primary {
+    background: var(--ml-candy-pink);
+    border-color: var(--ml-candy-pink);
+    color: #fff;
+    box-shadow: var(--ml-shadow-gloss), var(--ml-shadow-pink);
+    &:hover, &:focus, &:active {
+        background: var(--ml-candy-pink);
+        border-color: var(--ml-candy-pink);
+        color: #fff;
+        box-shadow: var(--ml-shadow-gloss), var(--ml-shadow-pink);
+    }
+}
+
+.btn-secondary {
+    background: #fff;
+    border: 1.5px solid var(--ml-cream-300);
+    color: var(--ml-ink-900);
+    box-shadow: var(--ml-shadow-sm);
+    &:hover, &:focus { background: #fff; color: var(--ml-ink-900); box-shadow: var(--ml-shadow-md); }
+}
+
+.btn-gold {
+    background: var(--ml-gold-500);
+    border-color: var(--ml-gold-500);
+    color: #fff;
+    box-shadow: var(--ml-shadow-gloss), var(--ml-shadow-gold);
+    &:hover, &:focus { background: var(--ml-gold-500); color: #fff; }
+}
+
+.btn-outline-primary {
+    background: transparent;
+    border: 1.5px solid var(--ml-candy-pink);
+    color: var(--ml-candy-pink);
+    &:hover { background: var(--ml-candy-pink); color: #fff; }
+}
+
+// =========================================================================
+// HEADER — translucent cream sticky w/ promo strip
+// =========================================================================
+#wrapwrap > header {
+    background: rgba(255, 252, 245, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--ml-cream-300);
+
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar-brand img {
+        max-height: 56px;
+    }
+
+    .nav-link {
+        font-family: var(--ml-font-body);
+        font-weight: 600;
+        color: var(--ml-ink-700) !important;
+        border-bottom: 2px solid transparent;
+        margin: 0 0.5rem;
+        padding: 0.5rem 0.25rem !important;
+        transition: color 160ms ease, border-color 160ms ease;
+        &:hover, &.active {
+            color: var(--ml-candy-pink) !important;
+            border-bottom-color: var(--ml-candy-pink);
+        }
+    }
+}
+
+// Promo top strip — opt-in by adding `.o_ml_top_strip` to a div
+// inside the header in the website builder.
+.o_ml_top_strip {
+    background: var(--ml-ink-900);
+    color: #fff;
+    font-family: var(--ml-font-body);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    padding: 9px 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+// =========================================================================
+// FOOTER — cream with gold dividers
+// =========================================================================
+#wrapwrap > footer {
+    background: var(--ml-cream-200);
+    color: var(--ml-ink-700);
+
+    a { color: var(--ml-ink-700); &:hover { color: var(--ml-candy-pink); } }
+
+    h4, h5, h6 {
+        font-family: var(--ml-font-body);
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ml-gold-700);
+    }
+
+    .o_footer_copyright {
+        border-top: 1px dashed var(--ml-gold-300, #F5D480);
+        padding-top: 1.25rem;
+        font-size: 12px;
+        color: var(--ml-ink-500);
+    }
+}
+
+// =========================================================================
+// WEBSITE_SALE (eCommerce) — product cards in shop grid
+// =========================================================================
+.oe_product_cart, .oe_product {
+    .card, &.card {
+        border-radius: 1.5rem !important;
+        border: 1px solid transparent;
+        box-shadow: var(--ml-shadow-sm);
+        background: #fff;
+        padding: 0.5rem;
+        transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms ease, border-color 200ms ease;
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--ml-shadow-md);
+            border-color: var(--ml-border-pink);
+        }
+    }
+
+    .o_wsale_product_btn .btn,
+    .a-submit {
+        background: var(--ml-candy-pink);
+        border-color: var(--ml-candy-pink);
+        color: #fff;
+        box-shadow: var(--ml-shadow-gloss), var(--ml-shadow-pink);
+    }
+
+    .product_price,
+    .oe_price,
+    .oe_currency_value {
+        font-family: var(--ml-font-display);
+        font-weight: 800;
+        color: var(--ml-ink-900);
+    }
+}
+
+.oe_website_sale {
+    .breadcrumb { background: transparent; }
+    .o_wsale_apply_layout .form-control {
+        border-radius: 999px;
+    }
+}
+
+// "Add to cart" + checkout primary buttons get the candy treatment via
+// the global .btn-primary override above — no extra work needed.
+
+// =========================================================================
+// FORMS
+// =========================================================================
+.form-control, .form-select {
+    border: 1.5px solid var(--ml-cream-300);
+    background: #fff;
+    color: var(--ml-ink-900);
+    &:focus {
+        border-color: var(--ml-candy-pink);
+        box-shadow: 0 0 0 0.2rem rgba(240, 106, 170, 0.25);
+    }
+    &::placeholder { color: var(--ml-ink-500); opacity: 0.7; }
+}
+
+// =========================================================================
+// UTILITIES — exposed for snippet authors
+// =========================================================================
+.o_ml_eyebrow {
+    font-family: var(--ml-font-body);
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 1;
+    color: var(--ml-candy-pink);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    display: inline-block;
+}
+
+.o_ml_script {
+    font-family: var(--ml-font-script);
+    color: var(--ml-candy-pink);
+    font-weight: 400;
+}
+
+.o_ml_tag {
+    display: inline-block;
+    font-family: var(--ml-font-body);
+    font-weight: 800;
+    font-size: 11px;
+    line-height: 1;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: var(--ml-candy-pink);
+
+    &.o_ml_tag_gold  { background: var(--ml-gold-500); }
+    &.o_ml_tag_blue  { background: var(--ml-candy-blue); }
+    &.o_ml_tag_teal  { background: var(--ml-candy-teal); }
+    &.o_ml_tag_pink  { background: var(--ml-candy-pink); }
+}
+
+.o_ml_stitched_pink {
+    border: 2px dashed var(--ml-border-pink) !important;
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+}
+
+.o_ml_bg_cream     { background: var(--ml-cream-50) !important; }
+.o_ml_bg_cream_100 { background: var(--ml-cream-100) !important; }
+.o_ml_bg_cream_200 { background: var(--ml-cream-200) !important; }
+.o_ml_bg_pink_wash { background: #FFE4F1 !important; }
+.o_ml_bg_blue_wash { background: #DFF1FB !important; }
+.o_ml_bg_mint_wash { background: #DCF4F2 !important; }

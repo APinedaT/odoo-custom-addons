@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Snippet registration
+        ====================
+        Makes our snippets appear inside the website builder's snippet
+        picker. We inject `<t t-snippet="..."/>` entries into the
+        `website.snippets` template at known section anchors.
+
+        Sections used (Odoo 19 default snippet structure):
+          - snippet_structure    : full-width sections (hero, story, categories, products)
+          - snippet_content      : inner content blocks (testimonials, lookbook)
+          - snippet_custom       : custom inner content
+    -->
+    <template id="minilele_snippets_register" inherit_id="website.snippets" name="Mini Lele · Snippets">
+
+        <!-- BIG STRUCTURE SNIPPETS (hero, story) -->
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+            <t t-snippet="theme_minilele.s_minilele_hero"
+               string="Mini Lele · Hero"
+               t-thumbnail="/theme_minilele/static/src/img/snippets/s_minilele_hero.svg"/>
+            <t t-snippet="theme_minilele.s_minilele_story"
+               string="Mini Lele · Historia"
+               t-thumbnail="/theme_minilele/static/src/img/snippets/s_minilele_story.svg"/>
+            <t t-snippet="theme_minilele.s_minilele_newsletter"
+               string="Mini Lele · Newsletter"
+               t-thumbnail="/theme_minilele/static/src/img/snippets/s_minilele_newsletter.svg"/>
+        </xpath>
+
+        <!-- FEATURE SNIPPETS (categories, promo strip, products) -->
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+            <t t-snippet="theme_minilele.s_minilele_categories"
+               string="Mini Lele · Categorías"
+               t-thumbnail="/theme_minilele/static/src/img/snippets/s_minilele_categories.svg"/>
+            <t t-snippet="theme_minilele.s_minilele_promo_strip"
+               string="Mini Lele · Beneficios"
+               t-thumbnail="/theme_minilele/static/src/img/snippets/s_minilele_promo.svg"/>
+            <t t-snippet="theme_minilele.s_minilele_products"
+               string="Mini Lele · Productos"
+               t-thumbnail="/theme_minilele/static/src/img/snippets/s_minilele_products.svg"/>
+        </xpath>
+
+        <!-- CONTENT SNIPPETS (testimonials, lookbook) -->
+        <xpath expr="//snippets[@id='snippet_content']" position="inside">
+            <t t-snippet="theme_minilele.s_minilele_testimonials"
+               string="Mini Lele · Testimonios"
+               t-thumbnail="/theme_minilele/static/src/img/snippets/s_minilele_testimonials.svg"/>
+            <t t-snippet="theme_minilele.s_minilele_lookbook"
+               string="Mini Lele · Lookbook"
+               t-thumbnail="/theme_minilele/static/src/img/snippets/s_minilele_lookbook.svg"/>
+        </xpath>
+
+    </template>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Mini Lele Categories
+        ====================
+        Three big pastel category cards.
+    -->
+    <template id="s_minilele_categories" name="Mini Lele · Categorías">
+        <section class="s_minilele_categories" data-snippet="s_minilele_categories" data-name="Mini Lele Categorías">
+            <div class="container">
+                <div class="o_ml_section_head">
+                    <span class="o_ml_eyebrow">Explora la boutique</span>
+                    <h2 class="mt-3">Encuentra lo que buscas</h2>
+                    <p>De recién nacidos a los 10 años. Elige por categoría y déjate sorprender.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <a href="/shop?category=ninas" class="o_ml_cat_card o_ml_cat_girls">
+                            <span class="o_ml_cat_emoji">👑</span>
+                            <div>
+                                <div class="o_ml_cat_label">Niñas</div>
+                                <div class="o_ml_cat_meta">0M – 10A · Vestidos, conjuntos, fiestas</div>
+                            </div>
+                            <span class="o_ml_cat_arrow"><i class="fa fa-arrow-right"/></span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/shop?category=ninos" class="o_ml_cat_card o_ml_cat_boys">
+                            <span class="o_ml_cat_emoji">🦁</span>
+                            <div>
+                                <div class="o_ml_cat_label">Niños</div>
+                                <div class="o_ml_cat_meta">0M – 10A · Conjuntos, camisas, ocasiones</div>
+                            </div>
+                            <span class="o_ml_cat_arrow"><i class="fa fa-arrow-right"/></span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/shop?category=bebe" class="o_ml_cat_card o_ml_cat_baby">
+                            <span class="o_ml_cat_emoji">🍼</span>
+                            <div>
+                                <div class="o_ml_cat_label">Bebé</div>
+                                <div class="o_ml_cat_meta">0 – 12M · Bodies, mantas, primeras piezas</div>
+                            </div>
+                            <span class="o_ml_cat_arrow"><i class="fa fa-arrow-right"/></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
