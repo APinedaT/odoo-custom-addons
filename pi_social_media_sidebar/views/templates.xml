@@ -24,7 +24,7 @@
                     <i class="fa fa-instagram"/>
                 </a>
                 <a t-if="website.company_id.social_tiktok" t-att-href="website.company_id.social_tiktok" target="_blank" class="s-item tiktok">
-                    <i class="fa fa-music"/>
+                    <i class="fa fa-tiktok"/>
                 </a>
                 <a t-if="website.company_id.phone"
                    t-attf-href="tel:#{website.company_id.phone}"
