@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="pi_layout_social" inherit_id="website.layout">
+        <xpath expr="//div[@id='wrapwrap']" position="inside">
+
+            <!-- ── Right sidebar ── -->
+            <div class="s-media">
+                <a t-if="website.company_id.social_twitter" t-att-href="website.company_id.social_twitter" target="_blank" class="s-item twitter">
+                    <i class="fa fa-twitter"/>
+                </a>
+                <a t-if="website.company_id.social_facebook" t-att-href="website.company_id.social_facebook" target="_blank" class="s-item facebook">
+                    <i class="fa fa-facebook"/>
+                </a>
+                <a t-if="website.company_id.social_github" t-att-href="website.company_id.social_github" target="_blank" class="s-item github">
+                    <i class="fa fa-github"/>
+                </a>
+                <a t-if="website.company_id.social_linkedin" t-att-href="website.company_id.social_linkedin" target="_blank" class="s-item linkedin">
+                    <i class="fa fa-linkedin"/>
+                </a>
+                <a t-if="website.company_id.social_youtube" t-att-href="website.company_id.social_youtube" target="_blank" class="s-item youtube">
+                    <i class="fa fa-youtube"/>
+                </a>
+                <a t-if="website.company_id.social_instagram" t-att-href="website.company_id.social_instagram" target="_blank" class="s-item instagram">
+                    <i class="fa fa-instagram"/>
+                </a>
+                <a t-if="website.company_id.social_tiktok" t-att-href="website.company_id.social_tiktok" target="_blank" class="s-item tiktok">
+                    <i class="fa fa-music"/>
+                </a>
+                <a t-if="website.company_id.phone"
+                   t-attf-href="tel:#{website.company_id.phone}"
+                   class="s-item phone">
+                    <i class="fa fa-phone"/>
+                </a>
+                <a id="sm-close" class="s-item print">
+                    <i class="fa fa-arrow-right"/>
+                </a>
+            </div>
+
+            <!-- Toggle button (visible when sidebar is collapsed) -->
+            <a id="sm-open" class="s-item print sm-collapse">
+                <i class="fa fa-arrow-left"/>
+            </a>
+
+            <!-- ── WhatsApp floating button ── -->
+            <a t-if="website.company_id.phone"
+               t-attf-href="https://wa.me/#{website.company_id.phone}"
+               target="_blank"
+               class="pi-whatsapp-float"
+               title="WhatsApp">
+                <i class="fa fa-whatsapp"/>
+            </a>
+
+        </xpath>
+    </template>
+</odoo>
