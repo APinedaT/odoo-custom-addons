@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pi_pos_min_price.ProductCard"
+       t-inherit="point_of_sale.ProductCard"
+       t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('product-name')]" position="after">
+            <span t-if="this.minPriceTag"
+                  class="pi-min-price-tag text-muted"
+                  style="font-size: 0.7rem; line-height: 1; display: block;"
+                  t-esc="this.minPriceTag"/>
+        </xpath>
+    </t>
+</templates>
