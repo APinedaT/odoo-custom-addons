@@ -5,6 +5,15 @@
         <xpath expr="//div[hasclass('pos-receipt-taxes')]" position="replace"/>
 
         <!-- Remove company info block from the bottom -->
-        <xpath expr="//div[hasclass('pos-config-name')]/../.." position="replace"/>
+        <xpath expr="//div[hasclass('pos-config-name')]/../.." position="replace">
+            <div class="pos-receipt-footer">
+                <div class="pos-config-name d-flex justify-content-center pt-2">
+                    Necesitas factura? 
+                </div>
+                <div class="pos-receipt-qr d-flex justify-content-center pt-2">
+                    <img src="/pi_pos_custom_receipt/static/src/app/screens/receipt_screen/receipt/whatsapp_qr.png" alt="QR Code" width="100" height="100"/>
+                </div>
+            </div>
+        </xpath>
     </t>
 </templates>
