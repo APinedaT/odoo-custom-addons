@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+        <!-- Add company info right after the order date -->
+        <xpath expr="//div[@id='order-date']" position="after">
+            <t t-set="company" t-value="order.company"/>
+            <div class="d-flex gap-2 pt-2">
+                <div class="w-50 text-break text-start" style="font-size: 75%;">
+                    <div class="pos-config-name fw-bold" t-out="order.config.name"/>
+                    <div>
+                        <t t-if="company.street" t-out="company.street"/>
+                        <t t-if="company.city" t-out="', ' + company.city"/>
+                        <t t-if="company.state_id?.code" t-out="', ' + company.state_id.code"/>
+                        <t t-if="company.zip" t-out="', ' + company.zip"/>
+                    </div>
+                </div>
+                <div class="w-50 text-break text-end" style="font-size: 75%;">
+                    <div t-if="company.vat">
+                        <t t-if="company.country_id and company.country_id.vat_label">
+                            <t t-out="company.country_id.vat_label"/>: <t t-out="company.vat"/>
+                        </t>
+                        <t t-else="">
+                            Tax ID: <t t-out="company.vat"/>
+                        </t>
+                    </div>
+                    <div t-if="company.phone">
+                        Tel: <t t-out="company.phone"/>
+                    </div>
+                    <div t-if="company.email" t-out="company.email"/>
+                    <div t-if="company.website" t-out="company.website"/>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>
