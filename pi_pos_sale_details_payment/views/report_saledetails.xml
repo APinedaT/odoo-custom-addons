@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="pos_session_sales_details_payment" inherit_id="point_of_sale.pos_session_sales_details">
+
+            <!-- Eliminar el codigo de barras en la seccion de Ventas -->
+            <xpath expr="//div[@id='sales']//t[@t-if=&quot;line['barcode']&quot;]" position="replace"/>
+
+            <!-- Eliminar el codigo de barras en la seccion de Reembolsos -->
+            <xpath expr="//div[@id='refunds']//t[@t-if=&quot;line['barcode']&quot;]" position="replace"/>
+
+            <!-- Anadir el metodo de pago por orden despues de la seccion de Pagos -->
+            <xpath expr="//div[@id='payments']" position="after">
+                <div t-if="orders" id="payment_method_per_order" style="break-inside: avoid; page-break-inside: avoid;">
+                    <h6 class="bg-secondary p-1 fw-bold">Payment method per order</h6>
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th class="text-start">Order</th>
+                                <th class="text-start">Payment method</th>
+                                <th class="text-end">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="orders" t-as="order" class="border-bottom border-secondary">
+                                <td class="ps-2"><span t-out="order['name']">Order 00001</span></td>
+                                <td><span t-out="order['payment_methods']">Cash</span></td>
+                                <td class="text-end">
+                                    <t t-if="currency['position']">
+                                        <span t-out="order['amount_total']" t-options="{'widget': 'float', 'precision': currency['precision']}">10.00</span><span t-out="currency['symbol']">$</span>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-out="currency['symbol']">$</span><span t-out="order['amount_total']" t-options="{'widget': 'float', 'precision': currency['precision']}">10.00</span>
+                                    </t>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="oe_structure"></div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
