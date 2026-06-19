@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pi_pos_product_description.Orderline"
+       t-inherit="point_of_sale.Orderline"
+       t-inherit-mode="extension">
+        <xpath expr="//span[hasclass('text-wrap')]" position="inside">
+            <small t-if="this.saleDescription and !vals.isReceipt"
+                   class="pi-product-description text-muted d-block"
+                   style="font-size: 0.72rem; line-height: 1.2; white-space: pre-line;">
+                <t t-esc="this.saleDescription"/>
+            </small>
+        </xpath>
+    </t>
+</templates>
