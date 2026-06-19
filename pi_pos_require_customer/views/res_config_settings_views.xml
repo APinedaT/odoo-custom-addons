@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pi.require.customer</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="inside">
+                <setting id="pos_require_customer" title="Require a customer before validating a payment"
+                         string="Require Customer" help="A customer must be selected before validating a payment in the POS">
+                    <field name="pos_pi_require_customer"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

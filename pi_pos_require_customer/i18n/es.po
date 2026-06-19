@@ -1,0 +1,75 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pi_pos_require_customer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-19 00:24+0000\n"
+"PO-Revision-Date: 2026-06-19 00:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pi_pos_require_customer
+#: model_terms:ir.ui.view,arch_db:pi_pos_require_customer.res_config_settings_view_form
+msgid "A customer must be selected before validating a payment in the POS"
+msgstr "Se debe seleccionar un cliente antes de validar un pago en el POS"
+
+#. module: pi_pos_require_customer
+#: model:ir.model,name:pi_pos_require_customer.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: pi_pos_require_customer
+#: model:ir.model.fields,field_description:pi_pos_require_customer.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pi_pos_require_customer.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: pi_pos_require_customer
+#: model:ir.model.fields,field_description:pi_pos_require_customer.field_pos_config__id
+#: model:ir.model.fields,field_description:pi_pos_require_customer.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: pi_pos_require_customer
+#. odoo-javascript
+#: code:addons/pi_pos_require_customer/static/src/app/utils/order_payment_validation.js:0
+msgid "Please select the Customer"
+msgstr ""
+
+#. module: pi_pos_require_customer
+#: model:ir.model,name:pi_pos_require_customer.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pi_pos_require_customer
+#: model:ir.model.fields,field_description:pi_pos_require_customer.field_pos_config__pi_require_customer
+#: model:ir.model.fields,field_description:pi_pos_require_customer.field_res_config_settings__pos_pi_require_customer
+#: model_terms:ir.ui.view,arch_db:pi_pos_require_customer.res_config_settings_view_form
+msgid "Require Customer"
+msgstr "Requerir Cliente"
+
+#. module: pi_pos_require_customer
+#: model_terms:ir.ui.view,arch_db:pi_pos_require_customer.res_config_settings_view_form
+msgid "Require a customer before validating a payment"
+msgstr "Requerir un cliente antes de validar un pago"
+
+#. module: pi_pos_require_customer
+#: model:ir.model.fields,help:pi_pos_require_customer.field_pos_config__pi_require_customer
+#: model:ir.model.fields,help:pi_pos_require_customer.field_res_config_settings__pos_pi_require_customer
+msgid "Si está activo, no se podrá validar el pago en el POS sin un cliente."
+msgstr ""
+"Si está activo, se debe seleccionar un cliente antes de validar un pago en "
+"el POS."
+
+#. module: pi_pos_require_customer
+#. odoo-javascript
+#: code:addons/pi_pos_require_customer/static/src/app/utils/order_payment_validation.js:0
+msgid "You must select a customer before validating this order."
+msgstr "Se debe seleccionar un cliente antes de validar un pago en el POS"
