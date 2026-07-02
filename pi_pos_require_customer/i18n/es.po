@@ -44,6 +44,12 @@ msgid "Please select the Customer"
 msgstr ""
 
 #. module: pi_pos_require_customer
+#. odoo-javascript
+#: code:addons/pi_pos_require_customer/static/src/app/utils/order_payment_validation.js:0
+msgid "Missing Customer Phone"
+msgstr "Falta el teléfono del cliente"
+
+#. module: pi_pos_require_customer
 #: model:ir.model,name:pi_pos_require_customer.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Configuración del TPV"
@@ -67,6 +73,12 @@ msgid "Si está activo, no se podrá validar el pago en el POS sin un cliente."
 msgstr ""
 "Si está activo, se debe seleccionar un cliente antes de validar un pago en "
 "el POS."
+
+#. module: pi_pos_require_customer
+#. odoo-javascript
+#: code:addons/pi_pos_require_customer/static/src/app/utils/order_payment_validation.js:0
+msgid "The customer %s has no phone number. You must add one before validating this order."
+msgstr "El cliente %s no tiene número de teléfono. Debe agregar uno antes de validar este pedido."
 
 #. module: pi_pos_require_customer
 #. odoo-javascript
