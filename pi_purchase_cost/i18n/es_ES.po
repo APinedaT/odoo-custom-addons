@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pi_purchase_cost
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-02 13:47+0000\n"
+"PO-Revision-Date: 2026-08-02 13:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pi_purchase_cost
+#: model:ir.model.fields,field_description:pi_purchase_cost.field_purchase_order_line__cost_price
+msgid "Cost"
+msgstr "Costo"
+
+
+#. module: pi_purchase_cost
+#: model:ir.model.fields,field_description:pi_purchase_cost.field_purchase_order_line__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+
+#. module: pi_purchase_cost
+#: model:ir.model.fields,help:pi_purchase_cost.field_purchase_order_line__sale_price
+msgid "Price at which the product is sold to customers."
+msgstr "Precio con el que se venden los productos a los clientes"
+
+#. module: pi_purchase_cost
+#: model:ir.model,name:pi_purchase_cost.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea de pedido de compra"
+
+#. module: pi_purchase_cost
+#: model:ir.model.fields,field_description:pi_purchase_cost.field_purchase_order_line__on_hand
+msgid "Quantity On Hand"
+msgstr "Cantidad a la mano"
+
+#. module: pi_purchase_cost
+#: model:ir.model.fields,field_description:pi_purchase_cost.field_purchase_order_line__sale_price
+msgid "Sales Price"
+msgstr "Precio de venta"
+
