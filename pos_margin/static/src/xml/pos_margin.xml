@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_margin.OrderSummaryMargin">
+        <t t-if="order.config_id.iface_display_margin">
+            <t t-set="_result" t-value="getOrderMargin()" />
+            <div
+                t-if="_result"
+                class="order-margin subentry d-flex justify-content-between w-100 fs-6 text-muted"
+            >
+                <span>Margin</span>
+                <span>
+                    <span class="value-margin" t-out="_result.margin" />
+                    (<span class="value-margin-rate" t-out="_result.margin_rate" />)
+                </span>
+            </div>
+        </t>
+    </t>
+
+    <!--
+    The margin is appended to the totals block of the ``OrderDisplay`` component.
+    That block is only rendered when ``props.mode != 'receipt'``, so the margin is
+    automatically kept out of the printed receipts.
+    -->
+    <t t-inherit="point_of_sale.OrderDisplay" t-inherit-mode="extension">
+        <xpath expr="//span[hasclass('total')]/.." position="after">
+            <OrderSummaryMargin order="order" />
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//t[@t-slot='default']" position="before">
+            <t t-if="vals.isDisplay and line.getIfaceDisplayMargin()">
+                <li
+                    t-att-class="'price order-line-margin ' + (line.getMarginRate() &lt; 0 ? 'margin-negative' : '')"
+                >
+                    (<t t-out="line.getMarginRateStr()" />)
+                </li>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

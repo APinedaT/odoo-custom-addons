@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pi_pos_order_form" model="ir.ui.view">
+        <field name="name">pi.pos.order.form</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_pos_order_invoice']" position="after">
+                <button name="action_pos_order_einvoice" type="object" string="Electronic Invoice"
+                        invisible="state not in ['paid', 'done'] or account_move"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

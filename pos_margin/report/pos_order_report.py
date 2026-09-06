@@ -1,0 +1,26 @@
+# Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+# @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from odoo import fields, models
+
+
+class PosOrderReport(models.Model):
+    _inherit = "report.pos.order"
+
+    margin_rate = fields.Float(string="Margin Rate (%)", aggregator="avg")
+
+    def _select(self):
+        return (
+            super()._select()
+            + """,
+            (
+                l.price_subtotal - COALESCE(l.total_cost, 0) /
+                CASE COALESCE(s.currency_rate, 0)
+                    WHEN 0 THEN 1.0
+                    ELSE s.currency_rate
+                END
+            ) / NULLIF(l.price_subtotal, 0) * 100
+            AS margin_rate
+            """
+        )
