@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        `web.layout` pinta el favicon con `t-att-href="x_icon or '/web/static/img/favicon.ico'"`.
+        Solo `website.layout` define `x_icon`, por eso el backend siempre usa el icono estático.
+        El cuerpo de un `t-call` se evalúa antes que la plantilla llamada, así que basta con
+        definir la variable aquí dentro para que `web.layout` la reciba.
+    -->
+    <template id="webclient_bootstrap_favicon" inherit_id="web.webclient_bootstrap"
+              name="Backend favicon desde el website">
+        <xpath expr="//t[@t-call='web.layout']" position="inside">
+            <t t-set="backend_website" t-value="request.env['website'].sudo().get_current_website()"/>
+            <t t-if="backend_website and backend_website.favicon">
+                <t t-set="x_icon" t-value="backend_website.image_url(backend_website, 'favicon')"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
