@@ -1,0 +1,106 @@
+// ============================================================================
+// Pineda Design System — eCommerce (website_sale)
+// ----------------------------------------------------------------------------
+// Brings Odoo's real shop grid in line with ProductCard.jsx from the design
+// system, so /shop matches the FeaturedGrid snippet. Selectors follow Odoo 19's
+// `website_sale/views/product_tile_templates.xml`.
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// Product tile — ProductCard.jsx
+// ----------------------------------------------------------------------------
+.oe_product_cart {
+    background: var(--surface-card);
+    border: var(--border-width) solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: box-shadow var(--dur-base) var(--ease-out),
+                transform var(--dur-base) var(--ease-out);
+
+    &:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+
+    .oe_product_image { background: var(--surface-sunken); }
+
+    // Product name — Barlow semibold, ink, snug
+    .o_wsale_products_item_title,
+    .o_wsale_products_item_title a {
+        font-family: var(--font-body);
+        font-weight: var(--fw-semibold);
+        font-size: var(--text-base);
+        line-height: var(--lh-snug);
+        color: var(--text-strong);
+    }
+
+    .oe_subdescription {
+        font-family: var(--font-body);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+    }
+
+    // Price — condensed numeric face, tabular figures
+    .product_price {
+        font-family: var(--font-numeric);
+        font-weight: var(--fw-bold);
+        font-variant-numeric: tabular-nums;
+        color: var(--text-strong);
+
+        .oe_currency_value { font-size: 26px; line-height: 1; }
+
+        del, .text-decoration-line-through {
+            color: var(--text-faint);
+            font-size: 16px;
+        }
+    }
+}
+
+// Ribbons ("Oferta" / "Nuevo") — yellow chip with the signature black outline.
+.oe_product_cart .o_ribbons .o_ribbon,
+.oe_product_cart .o_ribbon {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    border-radius: var(--radius-sm);
+}
+
+// Add to cart — full-width brand-red action, matching ProductCard.jsx.
+.o_wsale_product_btn_primary {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    border-radius: var(--radius-md);
+}
+
+// ----------------------------------------------------------------------------
+// Shop chrome
+// ----------------------------------------------------------------------------
+#products_grid, #products_grid_before {
+    .card, .list-group-item { border-radius: var(--radius-lg); }
+}
+
+// Category / filter headings use the display face.
+#products_grid_before h5,
+#products_grid_before h6,
+#o_shop_collapse_category {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+}
+
+// Cart, checkout and order summary surfaces
+#o_cart_summary,
+.o_website_sale_checkout,
+#cart_products {
+    .card { border-radius: var(--radius-xl); }
+}
+
+// Totals read as figures, not prose.
+#order_total, .oe_website_sale .oe_currency_value {
+    font-family: var(--font-numeric);
+    font-variant-numeric: tabular-nums;
+}

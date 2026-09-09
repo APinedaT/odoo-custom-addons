@@ -1,0 +1,311 @@
+// ============================================================================
+// Pineda Design System — base theme layer
+// ----------------------------------------------------------------------------
+// Frontend styles that bring Odoo's native widgets in line with the design
+// system's primitives (Button.jsx, Card.jsx, Input.jsx, Badge.jsx).
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// Typography
+// ----------------------------------------------------------------------------
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--lh-normal);
+    color: var(--text-body);
+    background: var(--surface-page);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-display);
+    color: var(--text-strong);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-tight);
+}
+
+h1, .h1 { font-size: var(--text-h1); font-weight: var(--fw-black); }
+h2, .h2 { font-size: var(--text-h2); font-weight: var(--fw-extra); }
+h3, .h3 { font-size: var(--text-h3); font-weight: var(--fw-bold); }
+h4, .h4 { font-size: var(--text-h4); font-weight: var(--fw-bold); }
+
+// The 56px hero size from tokens/typography.css.
+.o_pineda_display {
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    font-weight: var(--fw-black);
+    font-style: italic;              // the wordmark's industrial slant
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-tight);
+}
+
+// Prices and figures use the condensed numeric face.
+.o_pineda_numeric {
+    font-family: var(--font-numeric);
+    font-weight: var(--fw-bold);
+    font-variant-numeric: tabular-nums;
+}
+
+// Small uppercase label — the eyebrow/category treatment used across the kit.
+.o_pineda_eyebrow {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-caps);
+    color: var(--brand);
+}
+
+// ----------------------------------------------------------------------------
+// Buttons — Button.jsx
+// ----------------------------------------------------------------------------
+// Uppercase Saira, 2px border, squared corners, 1px "press" translate.
+// Heights: sm 34 / md 42 / lg 52.
+//
+// IMPORTANT — this is deliberately scoped to the *variant* classes, never to a
+// bare `.btn`. Odoo reuses `.btn` for icon-only controls (the cart and wishlist
+// links in the header are `<a class="btn rounded-circle p-1">`, and the editor,
+// pagination and dropdown toggles do the same). Giving bare `.btn` a fixed
+// height and 20px side padding turns those into empty 42px circles.
+// ----------------------------------------------------------------------------
+%pineda-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 42px;
+    padding: 0 var(--space-5);
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    line-height: 1;
+    border-width: var(--border-width-2);
+    border-radius: var(--radius-md);
+    transition: background var(--dur-fast) var(--ease-out),
+                color var(--dur-fast) var(--ease-out),
+                transform var(--dur-fast) var(--ease-out);
+
+    &:active { transform: translateY(1px); }
+    &:disabled, &.disabled { opacity: .5; }
+
+    &.btn-sm { min-height: 34px; padding: 0 var(--space-3); font-size: var(--text-sm); }
+    &.btn-lg { min-height: 52px; padding: 0 var(--space-6); font-size: var(--text-lg); }
+}
+
+.btn-primary, .btn-secondary, .btn-accent, .btn-danger,
+.btn-outline-primary, .btn-outline-secondary,
+.btn-fill-primary, .btn-fill-secondary,
+.btn-o-color-1, .btn-o-color-2 {
+    @extend %pineda-btn;
+}
+
+// primary — solid brand red
+.btn-primary {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: var(--text-on-brand);
+
+    &:hover, &:focus {
+        background: var(--brand-hover);
+        border-color: var(--brand-hover);
+        color: var(--text-on-brand);
+    }
+    &:active { background: var(--brand-pressed); border-color: var(--brand-pressed); }
+}
+
+// secondary — white with the signature black outline
+.btn-secondary {
+    background: var(--white);
+    border-color: var(--ink-950);
+    color: var(--text-strong);
+
+    &:hover, &:focus {
+        background: var(--ink-100);
+        border-color: var(--ink-950);
+        color: var(--text-strong);
+    }
+}
+
+// accent — hard-hat yellow with black outline
+.btn-accent,
+.btn-o-color-2 {
+    background: var(--accent);
+    border-color: var(--ink-950);
+    color: var(--text-on-accent);
+
+    &:hover, &:focus {
+        background: var(--accent-hover);
+        border-color: var(--ink-950);
+        color: var(--text-on-accent);
+    }
+    &:active { background: var(--accent-pressed); }
+}
+
+// ghost — text-only brand action. No sizing: `.btn-link` is also Odoo's
+// in-place text action inside menus and the editor.
+.btn-link,
+.btn-ghost {
+    color: var(--brand);
+    text-decoration: none;
+
+    &:hover, &:focus { color: var(--brand-hover); text-decoration: none; }
+}
+
+// On the dark hero the secondary button inverts to a white outline.
+.o_pineda_on_dark .btn-secondary {
+    background: transparent;
+    border-color: #fff;
+    color: #fff;
+
+    &:hover, &:focus { background: rgba(255, 255, 255, .12); color: #fff; }
+}
+
+// ----------------------------------------------------------------------------
+// Forms — Input.jsx
+// ----------------------------------------------------------------------------
+.form-control,
+.form-select {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    border: var(--border-width-2) solid var(--border-default);
+    border-radius: var(--radius-md);
+    color: var(--text-body);
+
+    &::placeholder { color: var(--text-faint); }
+    &:focus {
+        border-color: var(--border-brand);
+        box-shadow: 0 0 0 .2rem var(--focus-ring);
+    }
+}
+
+// ----------------------------------------------------------------------------
+// Surfaces — Card.jsx
+// ----------------------------------------------------------------------------
+.card {
+    background: var(--surface-card);
+    border: var(--border-width) solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+// The signature hard-offset shadow, opt-in.
+.o_pineda_hard      { box-shadow: var(--shadow-hard); }
+.o_pineda_hard_red  { box-shadow: var(--shadow-hard-red); }
+
+// Black outline utility — the brand's strongest structural device.
+.o_pineda_outline { border: var(--border-width-bold) solid var(--border-strong); }
+
+// ----------------------------------------------------------------------------
+// Badges / tags — Badge.jsx, Tag.jsx
+// ----------------------------------------------------------------------------
+.badge {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    border-radius: var(--radius-sm);
+    padding: .25em .6em;
+}
+
+.o_pineda_badge_accent {
+    background: var(--accent);
+    color: var(--text-on-accent);
+    border: var(--border-width-2) solid var(--ink-950);
+}
+
+// ----------------------------------------------------------------------------
+// Header / navigation — Header.jsx
+// ----------------------------------------------------------------------------
+// Utility bar above the header: ink background, yellow icons.
+.o_pineda_utility_bar {
+    background: var(--ink-950);
+    color: #fff;
+    font-size: var(--text-sm);
+    font-weight: var(--fw-medium);
+
+    .o_pineda_utility_inner {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: var(--space-1) var(--space-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-4);
+        flex-wrap: wrap;
+    }
+
+    i { color: var(--accent); margin-right: var(--space-2); }
+
+    .o_pineda_utility_group {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-5);
+    }
+
+    @media (max-width: 767.98px) {
+        .o_pineda_utility_inner { justify-content: center; }
+        .o_pineda_utility_group { gap: var(--space-3); }
+    }
+}
+
+// Main header bar: white with the 3px black rule underneath.
+#wrapwrap header {
+    background: var(--surface-card);
+    border-bottom: var(--border-width-bold) solid var(--ink-950);
+
+    .navbar-nav .nav-link {
+        font-family: var(--font-display);
+        font-weight: var(--fw-bold);
+        font-size: var(--text-sm);
+        text-transform: uppercase;
+        letter-spacing: var(--ls-wide);
+        color: var(--text-strong);
+        border-bottom: var(--border-width-bold) solid transparent;
+
+        &:hover, &:focus { color: var(--brand); }
+    }
+
+    .nav-item.active > .nav-link,
+    .navbar-nav .nav-link.active {
+        color: var(--brand);
+        border-bottom-color: var(--brand);
+    }
+}
+
+// ----------------------------------------------------------------------------
+// Footer — Footer.jsx
+// ----------------------------------------------------------------------------
+// Yellow/red hazard stripe capping the footer.
+.o_pineda_footer_stripe {
+    height: 6px;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--accent) 0 22px,
+        var(--brand) 22px 44px
+    );
+}
+
+#wrapwrap footer {
+    background: var(--surface-inverse);
+    color: rgba(255, 255, 255, .78);
+
+    h4, h5, .h4, .h5 {
+        color: #fff;
+        font-family: var(--font-display);
+        font-weight: var(--fw-bold);
+        font-size: var(--text-sm);
+        text-transform: uppercase;
+        letter-spacing: var(--ls-caps);
+    }
+
+    a {
+        color: rgba(255, 255, 255, .78);
+        &:hover { color: var(--accent); }
+    }
+}
+
+// Wordmark knocked out to white for dark surfaces (guidelines/brand-logo).
+.o_pineda_logo_inverse { filter: brightness(0) invert(1); }

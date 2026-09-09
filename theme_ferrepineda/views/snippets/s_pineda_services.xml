@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_pineda_services" name="Pineda · Servicios">
+        <section class="s_pineda_services" data-snippet="s_pineda_services" data-name="Pineda Servicios">
+            <div class="o_pineda_container">
+                <div class="o_pineda_service_grid">
+                    <div class="o_pineda_service">
+                        <span class="o_pineda_service_icon"><i class="fa fa-truck"/></span>
+                        <h3>Entrega en obra</h3>
+                        <p>Despacho a conjuntos residenciales y obras.</p>
+                    </div>
+                    <div class="o_pineda_service">
+                        <span class="o_pineda_service_icon"><i class="fa fa-key"/></span>
+                        <h3>Cerrajería 24h</h3>
+                        <p>Apertura, cambio e instalación de cerraduras.</p>
+                    </div>
+                    <div class="o_pineda_service">
+                        <span class="o_pineda_service_icon"><i class="fa fa-percent"/></span>
+                        <h3>Precios por volumen</h3>
+                        <p>Tarifas especiales para constructoras.</p>
+                    </div>
+                    <div class="o_pineda_service">
+                        <span class="o_pineda_service_icon"><i class="fa fa-headphones"/></span>
+                        <h3>Asesoría técnica</h3>
+                        <p>Te ayudamos a calcular cantidades.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

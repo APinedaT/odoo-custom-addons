@@ -1,0 +1,183 @@
+// ============================================================================
+// Pineda Design System — tokens
+// ----------------------------------------------------------------------------
+// Direct port of the Claude Design project's `tokens/*.css` (colors, typography,
+// spacing, effects) into the Odoo frontend bundle.
+//
+// The names are kept IDENTICAL to the design system on purpose: the snippet
+// markup in this theme can then use `var(--brand)`, `var(--space-6)`,
+// `var(--shadow-hard)` exactly like the React UI kit does, so a change in the
+// design system maps 1:1 onto a change here.
+//
+// Source of truth: "Pineda Design System" / tokens/{colors,typography,spacing,
+// effects}.css
+// ============================================================================
+
+:root {
+    // ---- Brand red (primary) ----
+    --red-50:  #fdecec;
+    --red-100: #fbd2d3;
+    --red-200: #f59a9d;
+    --red-300: #ee5f64;
+    --red-400: #ea2c34;
+    --red-500: #e00010;   // core brand red — from wordmark
+    --red-600: #c00010;
+    --red-700: #98000d;   // deep / pressed
+    --red-800: #6f0a0c;
+
+    // ---- Brand yellow (accent — hard hat) ----
+    --yellow-50:  #fff8e0;
+    --yellow-100: #ffefb3;
+    --yellow-200: #ffe277;
+    --yellow-300: #ffd530;
+    --yellow-400: #ffce00; // core hard-hat yellow
+    --yellow-500: #f2bd00;
+    --yellow-600: #d19c00; // yellow text on light / pressed
+    --yellow-700: #9c7400;
+
+    // ---- Ink / neutral steel ----
+    --ink-950: #121212;   // near-black outline ink
+    --ink-900: #1c1c1e;
+    --ink-800: #2b2b2e;
+    --ink-700: #3d3d42;
+    --ink-600: #55555c;
+    --ink-500: #74747c;
+    --ink-400: #9a9aa2;
+    --ink-300: #c2c2c8;
+    --ink-200: #dededf;   // hairline borders
+    --ink-150: #e7e7e8;
+    --ink-100: #f0f0f1;   // app background / steel tint
+    --ink-50:  #f7f7f8;
+    --white:   #ffffff;
+
+    // ---- Support: mascot skin / warm accent (rare) ----
+    --tan-300: #f0b070;
+    --tan-400: #e89048;
+
+    // ---- Semantic feedback ----
+    --success-500: #1f8a3b;
+    --success-50:  #e7f5ec;
+    --warning-500: #e8920c;
+    --warning-50:  #fdf1dd;
+    --danger-500:  #e00010; // shares brand red
+    --danger-50:   #fdecec;
+    --info-500:    #1664c0;
+    --info-50:     #e7f0fb;
+
+    // ---- Semantic aliases — reference these in components ----
+    --brand:            var(--red-500);
+    --brand-hover:      var(--red-600);
+    --brand-pressed:    var(--red-700);
+    --brand-tint:       var(--red-50);
+    --accent:           var(--yellow-400);
+    --accent-hover:     var(--yellow-500);
+    --accent-pressed:   var(--yellow-600);
+    --accent-tint:      var(--yellow-50);
+
+    --surface-page:     var(--ink-100);
+    --surface-card:     var(--white);
+    --surface-raised:   var(--white);
+    --surface-sunken:   var(--ink-50);
+    --surface-inverse:  var(--ink-950);
+    --surface-accent:   var(--yellow-400);
+
+    --text-strong:      var(--ink-950);
+    --text-body:        var(--ink-800);
+    --text-muted:       var(--ink-500);
+    --text-faint:       var(--ink-400);
+    --text-on-brand:    var(--white);
+    --text-on-accent:   var(--ink-950);
+    --text-inverse:     var(--white);
+    --text-link:        var(--red-600);
+
+    --border-subtle:    var(--ink-200);
+    --border-default:   var(--ink-300);
+    --border-strong:    var(--ink-950); // the signature black outline
+    --border-brand:     var(--red-500);
+
+    --focus-ring:       #{rgba(#e00010, .45)};
+
+    // ---- Typography ----
+    --font-display: "Saira", "Arial Narrow", system-ui, sans-serif;
+    --font-body:    "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-numeric: "Saira Condensed", "Saira", system-ui, sans-serif;
+
+    --fw-regular:  400;
+    --fw-medium:   500;
+    --fw-semibold: 600;
+    --fw-bold:     700;
+    --fw-extra:    800;
+    --fw-black:    900;
+
+    --text-display: 3.5rem;   // 56 — hero
+    --text-h1:      2.5rem;   // 40
+    --text-h2:      2rem;     // 32
+    --text-h3:      1.5rem;   // 24
+    --text-h4:      1.25rem;  // 20
+
+    --text-lg:   1.125rem;    // 18
+    --text-base: 1rem;        // 16
+    --text-sm:   0.875rem;    // 14
+    --text-xs:   0.75rem;     // 12
+
+    --lh-tight:   1.05;
+    --lh-snug:    1.2;
+    --lh-normal:  1.5;
+    --lh-relaxed: 1.65;
+
+    --ls-tight:  -0.01em;
+    --ls-normal:  0;
+    --ls-wide:    0.04em;
+    --ls-caps:    0.08em;
+
+    // ---- Spacing (4px base) ----
+    --space-0:  0;
+    --space-1:  0.25rem;
+    --space-2:  0.5rem;
+    --space-3:  0.75rem;
+    --space-4:  1rem;
+    --space-5:  1.25rem;
+    --space-6:  1.5rem;
+    --space-8:  2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+
+    // ---- Radius — squared/industrial; tools & metal aren't rounded ----
+    --radius-0:    0;
+    --radius-sm:   2px;
+    --radius-md:   4px;   // default control radius
+    --radius-lg:   6px;
+    --radius-xl:   10px;  // cards
+    --radius-pill: 999px; // tags / chips only
+
+    // ---- Borders ----
+    --border-width:      1px;
+    --border-width-2:    2px;
+    --border-width-bold: 3px; // the signature black outline
+
+    // ---- Layout ----
+    --container-max: 1200px;
+    --container-pad: var(--space-6);
+
+    // ---- Shadows — tight, hard-edged, low-blur (industrial, not soft) ----
+    --shadow-xs: 0 1px 2px rgba(18, 18, 18, .08);
+    --shadow-sm: 0 1px 3px rgba(18, 18, 18, .12);
+    --shadow-md: 0 4px 10px rgba(18, 18, 18, .12);
+    --shadow-lg: 0 10px 24px rgba(18, 18, 18, .16);
+
+    // Signature "hard offset" shadow — echoes the wordmark drop
+    --shadow-hard:     3px 3px 0 var(--ink-950);
+    --shadow-hard-red: 3px 3px 0 var(--red-600);
+
+    --overlay-scrim: rgba(18, 18, 18, .55);
+
+    // ---- Motion ----
+    --ease-out:    cubic-bezier(.2, .7, .3, 1);
+    --ease-in-out: cubic-bezier(.4, 0, .2, 1);
+    --dur-fast: 120ms;
+    --dur-base: 180ms;
+    --dur-slow: 280ms;
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="pineda_snippets_register" inherit_id="website.snippets" name="Pineda · Snippets">
+
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+
+            <t t-snippet="theme_ferrepineda.s_pineda_hero"
+               string="Pineda · Hero"
+               group="intro">
+                <keywords>hero, portada, ferretería, obra, construcción, cerrajería, mascota, banner</keywords>
+            </t>
+
+            <t t-snippet="theme_ferrepineda.s_pineda_categories"
+               string="Pineda · Categorías"
+               group="columns">
+                <keywords>categorías, catálogo, secciones, navegación, iconos, tiles</keywords>
+            </t>
+
+            <t t-snippet="theme_ferrepineda.s_pineda_delivery"
+               string="Pineda · Entrega en obra"
+               group="content">
+                <keywords>entrega, domicilio, despacho, obra, banner, llamada a la acción</keywords>
+            </t>
+
+            <t t-snippet="theme_ferrepineda.s_pineda_services"
+               string="Pineda · Servicios"
+               group="columns">
+                <keywords>servicios, beneficios, características, ventajas, asesoría</keywords>
+            </t>
+
+        </xpath>
+
+    </template>
+</odoo>

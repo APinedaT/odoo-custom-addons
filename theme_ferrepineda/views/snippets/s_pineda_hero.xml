@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_pineda_hero" name="Pineda · Hero">
+        <section class="s_pineda_hero o_pineda_on_dark" data-snippet="s_pineda_hero" data-name="Pineda Hero">
+            <div class="o_pineda_hazard"/>
+            <div class="o_pineda_container o_pineda_hero_inner">
+                <div>
+                    <span class="o_pineda_hero_kicker">
+                        <i class="fa fa-shield"/>
+                        Materiales · Construcción · Cerrajería
+                    </span>
+                    <h1>
+                        TODO PARA TU <span class="o_pineda_red">OBRA</span><br/>
+                        Y TU <span class="o_pineda_yellow">CERRAJERÍA</span>
+                    </h1>
+                    <p class="lead">
+                        Surtimos materiales de construcción y cerrajería con entrega directa
+                        en obra. Especialistas en conjuntos residenciales.
+                    </p>
+                    <div class="o_pineda_hero_actions">
+                        <a href="/shop" class="btn btn-accent btn-lg">
+                            <i class="fa fa-th"/>
+                            Ver catálogo
+                        </a>
+                        <a href="/contactus" class="btn btn-secondary btn-lg">
+                            <i class="fa fa-file-text-o"/>
+                            Pedir cotización
+                        </a>
+                    </div>
+                    <div class="o_pineda_stats">
+                        <div>
+                            <div class="o_pineda_stat_value">2.500+</div>
+                            <div class="o_pineda_stat_label">Productos</div>
+                        </div>
+                        <div>
+                            <div class="o_pineda_stat_value">24h</div>
+                            <div class="o_pineda_stat_label">Cerrajería</div>
+                        </div>
+                        <div>
+                            <div class="o_pineda_stat_value">+15</div>
+                            <div class="o_pineda_stat_label">Años de experiencia</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="o_pineda_mascot_ring">
+                        <img src="/theme_ferrepineda/static/src/img/mascot.png"
+                             alt="Mascota Ferretería y Cerrajería Pineda"
+                             loading="lazy"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

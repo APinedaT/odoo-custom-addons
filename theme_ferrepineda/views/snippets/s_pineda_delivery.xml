@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_pineda_delivery" name="Pineda · Entrega en obra">
+        <section class="s_pineda_delivery" data-snippet="s_pineda_delivery" data-name="Pineda Entrega">
+            <div class="o_pineda_container o_pineda_delivery_inner">
+                <span class="o_pineda_delivery_icon"><i class="fa fa-truck"/></span>
+                <div class="o_pineda_delivery_text">
+                    <h2>ENTREGAMOS DIRECTO EN TU OBRA</h2>
+                    <p>
+                        Programa tu pedido y recibe los materiales en el conjunto residencial.
+                        Despacho propio, sin que pares la cuadrilla.
+                    </p>
+                </div>
+                <a href="/contactus" class="btn btn-accent btn-lg">
+                    <i class="fa fa-calendar-check-o"/>
+                    Programar entrega
+                </a>
+            </div>
+        </section>
+    </template>
+</odoo>

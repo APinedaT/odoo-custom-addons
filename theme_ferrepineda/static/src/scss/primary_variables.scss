@@ -1,0 +1,237 @@
+// ============================================================================
+// Pineda Design System — Odoo primary variables
+// ----------------------------------------------------------------------------
+// Appended to `web._assets_primary_variables`, so Odoo/Bootstrap have already
+// defined $o-color-palettes, $o-theme-font-configs and $o-website-values-palettes
+// by the time this runs and we can merge into them.
+//
+// This file translates the design system into the variables Odoo's own widgets
+// (buttons, forms, eCommerce, the website builder) read. `tokens.scss` carries
+// the same values as CSS custom properties for our own markup.
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// 1. RAW TOKENS (mirror of tokens/colors.css)
+// ----------------------------------------------------------------------------
+$pineda-red-50:  #fdecec;
+$pineda-red-100: #fbd2d3;
+$pineda-red-200: #f59a9d;
+$pineda-red-300: #ee5f64;
+$pineda-red-400: #ea2c34;
+$pineda-red-500: #e00010;   // core brand red
+$pineda-red-600: #c00010;
+$pineda-red-700: #98000d;
+$pineda-red-800: #6f0a0c;
+
+$pineda-yellow-50:  #fff8e0;
+$pineda-yellow-100: #ffefb3;
+$pineda-yellow-200: #ffe277;
+$pineda-yellow-300: #ffd530;
+$pineda-yellow-400: #ffce00; // core hard-hat yellow
+$pineda-yellow-500: #f2bd00;
+$pineda-yellow-600: #d19c00;
+$pineda-yellow-700: #9c7400;
+
+$pineda-ink-950: #121212;
+$pineda-ink-900: #1c1c1e;
+$pineda-ink-800: #2b2b2e;
+$pineda-ink-700: #3d3d42;
+$pineda-ink-600: #55555c;
+$pineda-ink-500: #74747c;
+$pineda-ink-400: #9a9aa2;
+$pineda-ink-300: #c2c2c8;
+$pineda-ink-200: #dededf;
+$pineda-ink-150: #e7e7e8;
+$pineda-ink-100: #f0f0f1;
+$pineda-ink-50:  #f7f7f8;
+
+$pineda-success: #1f8a3b;
+$pineda-warning: #e8920c;
+$pineda-danger:  #e00010;
+$pineda-info:    #1664c0;
+
+// Radius scale (tokens/spacing.css) — industrial, mostly squared.
+//
+// The design system states these in px (2/4/6/10). They are declared here in
+// their exact rem equivalents (at the 16px root) because Odoo's website layer
+// does rem arithmetic on the Bootstrap radius variables — e.g.
+// website/static/src/scss/bootstrap_overridden.scss computes
+//   $form-check-input-border-radius: min($input-border-radius, .25rem)
+// which raises "Incompatible units: 'rem' and 'px'" against a px value and
+// fails the whole web.assets_frontend bundle.
+//
+// The px values are still what the design system publishes: tokens.scss keeps
+// --radius-* in px verbatim, and that is what this theme's own markup uses.
+$pineda-radius-sm: 0.125rem;  // 2px
+$pineda-radius-md: 0.25rem;   // 4px
+$pineda-radius-lg: 0.375rem;  // 6px
+$pineda-radius-xl: 0.625rem;  // 10px
+
+// ----------------------------------------------------------------------------
+// 2. COLOR PALETTE
+// ----------------------------------------------------------------------------
+// o-color-1 primary / 2 accent / 3 page tint / 4 card / 5 ink.
+// 'menu': 4 keeps the header white with a black rule (SiteHeader);
+// 'footer'/'copyright': 5 keeps the footer ink-950 (SiteFooter).
+// ----------------------------------------------------------------------------
+$o-color-palettes: map-merge($o-color-palettes, (
+    'pineda': (
+        'o-color-1': $pineda-red-500,
+        'o-color-2': $pineda-yellow-400,
+        'o-color-3': $pineda-ink-100,
+        'o-color-4': #ffffff,
+        'o-color-5': $pineda-ink-950,
+
+        // These are Odoo COLOR COMBINATIONS (o_cc1..o_cc5), not o-color-N.
+        // cc1 = white background / dark text -> the white header bar with the
+        // 3px black rule from Header.jsx. (cc4 would paint the header brand red,
+        // which collides with the red wordmark.)
+        'menu': 1,
+        // cc5 = o-color-5 background -> the ink-950 footer from Footer.jsx.
+        'footer': 5,
+        'copyright': 5,
+    ),
+));
+
+// Offer it in the website builder's palette picker.
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'pineda');
+
+// ----------------------------------------------------------------------------
+// 3. FONTS
+// ----------------------------------------------------------------------------
+// Saira (display / industrial), Barlow (body / UI), Saira Condensed (numerics).
+// Registering them here makes them selectable in the builder's font picker.
+//
+// NOTE — deliberately NO 'url' key.
+// Odoo builds its own webfont import from that key as
+//     @import url("https://fonts.googleapis.com/css?family=#{$url}&display=swap");
+// i.e. the *v1* Google Fonts API, whose syntax is 'Roboto:300,300i,400,700'.
+// The css2 syntax the design system uses ('Saira:ital,wght@0,500;0,600;...')
+// contains semicolons, and a ';' terminates the CSS statement — which yields a
+// truncated, malformed @import at the very top of web.assets_frontend and makes
+// the browser discard the WHOLE stylesheet. The site then renders with no CSS
+// at all, while the bundle itself still compiles without error.
+//
+// website/static/src/scss/website.scss skips the import when 'url' is absent,
+// so omitting it is safe: the fonts are loaded once, correctly, by the css2
+// <link> in views/layout.xml — the exact URL from the design system's
+// tokens/fonts.css, which also covers Saira Condensed (used for prices via
+// --font-numeric but not bound to any Odoo font role).
+// ----------------------------------------------------------------------------
+$o-theme-font-configs: map-merge($o-theme-font-configs, (
+    'Saira': (
+        'family': ('Saira', 'Arial Narrow', sans-serif),
+    ),
+    'Saira Condensed': (
+        'family': ('Saira Condensed', 'Saira', sans-serif),
+    ),
+    'Barlow': (
+        'family': ('Barlow', sans-serif),
+    ),
+));
+
+$o-theme-headings-font: 'Saira', 'Arial Narrow', sans-serif;
+$o-theme-font:          'Barlow', sans-serif;
+$o-theme-buttons-font:  'Saira', 'Arial Narrow', sans-serif;
+$o-theme-navbar-font:   'Saira', 'Arial Narrow', sans-serif;
+
+// ----------------------------------------------------------------------------
+// 4. WEBSITE VALUES PALETTE
+// ----------------------------------------------------------------------------
+// Sets this theme's defaults for a freshly installed website. It has to be
+// appended AND selected by index: website/secondary_variables.scss reads
+// $o-website-values-palette-number before appending the user's own palette.
+// ----------------------------------------------------------------------------
+$o-website-values-palettes: append($o-website-values-palettes, (
+    'color-palettes-name': 'pineda',
+
+    'font':               'Barlow',
+    'headings-font':      'Saira',
+    'default-headings-font': 'Saira',
+    'navbar-font':        'Saira',
+    'buttons-font':       'Saira',
+
+    // Buttons: squared, uppercase, generous horizontal padding (Button.jsx)
+    'btn-padding-y':      .5rem,
+    'btn-padding-x':      1.25rem,
+    'btn-padding-y-lg':   .875rem,
+    'btn-padding-x-lg':   1.75rem,
+    'btn-padding-y-sm':   .375rem,
+    'btn-padding-x-sm':   .875rem,
+    'btn-border-radius':     $pineda-radius-md,
+    'btn-border-radius-lg':  $pineda-radius-md,
+    'btn-border-radius-sm':  $pineda-radius-md,
+
+    'link-underline': 'hover',
+    'layout': 'full',
+));
+$o-website-values-palette-number: length($o-website-values-palettes);
+
+// ----------------------------------------------------------------------------
+// 5. BOOTSTRAP OVERRIDES
+// ----------------------------------------------------------------------------
+// Radius — "tools & metal aren't rounded"
+$border-radius:       $pineda-radius-md;
+$border-radius-sm:    $pineda-radius-sm;
+$border-radius-lg:    $pineda-radius-lg;
+$border-radius-xl:    $pineda-radius-xl;
+$border-radius-pill:  999px;
+
+$btn-border-radius:     $pineda-radius-md;
+$btn-border-radius-sm:  $pineda-radius-md;
+$btn-border-radius-lg:  $pineda-radius-md;
+$btn-border-width:      2px;      // Button.jsx uses a 2px border on every variant
+$btn-font-weight:       700;
+
+$card-border-radius:  $pineda-radius-xl;   // Card.jsx / ProductCard.jsx
+$card-border-color:   $pineda-ink-200;     // --border-subtle
+
+$input-border-radius:      $pineda-radius-md;
+$input-border-radius-sm:   $pineda-radius-sm;
+$input-border-radius-lg:   $pineda-radius-lg;
+$input-border-color:       $pineda-ink-300;
+$input-border-width:       2px;            // Input.jsx / header search
+$input-focus-border-color: $pineda-red-500;
+$input-focus-box-shadow:   0 0 0 .2rem rgba($pineda-red-500, .45); // --focus-ring
+
+// Surfaces & text
+$body-bg:       $pineda-ink-100;   // --surface-page
+$body-color:    $pineda-ink-800;   // --text-body
+
+// Type
+$font-family-base:      $o-theme-font;
+$font-weight-base:      400;
+$line-height-base:      1.5;       // --lh-normal
+$headings-font-family:  $o-theme-headings-font;
+$headings-font-weight:  800;
+$headings-color:        $pineda-ink-950;  // --text-strong
+$headings-line-height:  1.2;       // --lh-snug
+
+// Links
+$link-color:            $pineda-red-600;  // --text-link
+$link-hover-color:      $pineda-red-700;  // --brand-pressed
+$link-decoration:       none;
+$link-hover-decoration: underline;
+
+// Selection / active state
+$component-active-bg:    $pineda-red-500;
+$component-active-color: #ffffff;
+
+// Semantic feedback (tokens/colors.css)
+$success: $pineda-success;
+$warning: $pineda-warning;
+$danger:  $pineda-danger;
+$info:    $pineda-info;
+
+// ----------------------------------------------------------------------------
+// 6. ODOO HEADING SCALE
+// ----------------------------------------------------------------------------
+// Multipliers of $font-size-base (16px) to reproduce tokens/typography.css:
+// h1 40 / h2 32 / h3 24 / h4 20. The 56px display size is applied in theme.scss.
+// ----------------------------------------------------------------------------
+$o-theme-h1-font-size-multiplier: 2.5;
+$o-theme-h2-font-size-multiplier: 2;
+$o-theme-h3-font-size-multiplier: 1.5;
+$o-theme-h4-font-size-multiplier: 1.25;
+$o-theme-h5-font-size-multiplier: 1.125;
+$o-theme-h6-font-size-multiplier: 1;

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Layout customizations
+        =====================
+        Everything here is a default applied on theme install; each piece stays
+        editable afterwards in the website builder.
+    -->
+
+    <!--
+        Webfonts.
+        Loaded as a <link> in <head> so the browser starts fetching them
+        immediately instead of discovering them mid-bundle. The families and
+        weights are exactly those declared in the design system's tokens/fonts.css
+        (Saira incl. italic 700-900 for the display headlines, Saira Condensed for
+        prices, Barlow for body copy).
+    -->
+    <template id="layout_fonts" inherit_id="website.layout" name="Pineda · Webfonts">
+        <xpath expr="//head" position="inside">
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+            <link rel="stylesheet"
+                  href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&amp;family=Saira+Condensed:wght@500;600;700;800&amp;family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap"/>
+        </xpath>
+    </template>
+
+    <!--
+        Utility bar above the header — the top strip of SiteHeader (Header.jsx):
+        ink background, yellow icons, delivery promise left, phone + hours right.
+        Icons: Lucide truck/phone/clock -> FA4 truck/phone/clock-o.
+    -->
+    <template id="layout_utility_bar" inherit_id="website.layout" name="Pineda · Barra de utilidad">
+        <xpath expr="//div[@id='wrapwrap']/header" position="before">
+            <div class="o_pineda_utility_bar">
+                <div class="o_pineda_utility_inner">
+                    <span>
+                        <i class="fa fa-truck"/>
+                        Entregas de material en Bogotá
+                    </span>
+                    <span class="o_pineda_utility_group">
+                        <span><i class="fa fa-phone"/>318 220 0686</span>
+                        <span><i class="fa fa-clock-o"/>Lun–Sáb 8:00–17:00</span>
+                    </span>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!--
+        Yellow/red hazard stripe capping the footer (Footer.jsx).
+    -->
+    <template id="layout_footer_stripe" inherit_id="website.layout" name="Pineda · Franja del footer">
+        <xpath expr="//div[@id='wrapwrap']/footer" position="before">
+            <div class="o_pineda_footer_stripe"/>
+        </xpath>
+    </template>
+
+</odoo>

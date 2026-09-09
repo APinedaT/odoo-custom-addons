@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_pineda_categories" name="Pineda · Categorías">
+        <section class="s_pineda_categories" data-snippet="s_pineda_categories" data-name="Pineda Categorías">
+            <div class="o_pineda_container">
+                <div class="o_pineda_section_head">
+                    <h2>Categorías</h2>
+                    <span class="o_pineda_section_note">Encuentra lo que tu obra necesita</span>
+                </div>
+                <div class="o_pineda_cat_grid">
+                    <a href="/shop" class="o_pineda_cat">
+                        <span class="o_pineda_cat_icon"><i class="fa fa-cubes"/></span>
+                        <span class="o_pineda_cat_label">Construcción</span>
+                    </a>
+                    <a href="/shop" class="o_pineda_cat">
+                        <span class="o_pineda_cat_icon"><i class="fa fa-key"/></span>
+                        <span class="o_pineda_cat_label">Cerrajería</span>
+                    </a>
+                    <a href="/shop" class="o_pineda_cat">
+                        <span class="o_pineda_cat_icon"><i class="fa fa-wrench"/></span>
+                        <span class="o_pineda_cat_label">Herramienta</span>
+                    </a>
+                    <a href="/shop" class="o_pineda_cat">
+                        <span class="o_pineda_cat_icon"><i class="fa fa-bolt"/></span>
+                        <span class="o_pineda_cat_label">Eléctricos</span>
+                    </a>
+                    <a href="/shop" class="o_pineda_cat">
+                        <span class="o_pineda_cat_icon"><i class="fa fa-tint"/></span>
+                        <span class="o_pineda_cat_label">Plomería</span>
+                    </a>
+                    <a href="/shop" class="o_pineda_cat">
+                        <span class="o_pineda_cat_icon"><i class="fa fa-shield"/></span>
+                        <span class="o_pineda_cat_label">Seguridad</span>
+                    </a>
+                    <a href="/shop" class="o_pineda_cat">
+                        <span class="o_pineda_cat_icon"><i class="fa fa-paint-brush"/></span>
+                        <span class="o_pineda_cat_label">Pinturas</span>
+                    </a>
+                    <a href="/shop" class="o_pineda_cat">
+                        <span class="o_pineda_cat_icon"><i class="fa fa-cog"/></span>
+                        <span class="o_pineda_cat_label">Ferretería</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
