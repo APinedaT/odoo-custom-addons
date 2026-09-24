@@ -18,7 +18,10 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
+import logging
 from odoo import fields, models
+
+_logger = logging.getLogger(__name__)
 
 
 class PosConfig(models.Model):
@@ -38,3 +41,34 @@ class PosConfig(models.Model):
                                   default='qty_on_hand', string="Stock Type",
                                   help="In which quantity type you"
                                        " have to restrict and display")
+
+    def _get_pos_stock_quantities(self, groupby, ids):
+        """Return ``{id: (qty_available, virtual_available)}`` for the given
+        product (``groupby='product_id'``) or template
+        (``groupby='product_tmpl_id'``) ids, scoped to the POS source location
+        (picking_type_id → default_location_src_id) and its children.
+        Ids without quants get (0.0, 0.0). Returns None when the operation
+        type has no source location, meaning the global stock must be kept."""
+        self.ensure_one()
+        location = self.picking_type_id.default_location_src_id
+        if not location:
+            _logger.warning(
+                "pos_restrict_product_stock: No source location on "
+                "picking_type_id '%s' for POS config '%s'. "
+                "Falling back to global stock.",
+                self.picking_type_id.display_name, self.name,
+            )
+            return None
+        quantities = dict.fromkeys(ids, (0.0, 0.0))
+        quant_data = self.env['stock.quant'].sudo()._read_group(
+            [
+                ('location_id', 'child_of', location.id),
+                (groupby, 'in', list(ids)),
+            ],
+            groupby=[groupby],
+            aggregates=['quantity:sum', 'reserved_quantity:sum'],
+        )
+        for record, on_hand, reserved in quant_data:
+            on_hand = on_hand or 0.0
+            quantities[record.id] = (on_hand, on_hand - (reserved or 0.0))
+        return quantities

@@ -20,7 +20,7 @@
                          t-attf-class="display_qty #{props.product.qty_available lte 0 ? 'not-available' : ''}">
                         <t t-esc="props.product.qty_available"/>
                     </div>
-                    <div t-attf-class="display_virtual #{props.product.virtual_available 0 ? 'not-available':''}">
+                    <div t-attf-class="display_virtual #{props.product.virtual_available lte 0 ? 'not-available':''}">
                         <t t-esc="props.product.virtual_available"/>
                     </div>
                 </t>
