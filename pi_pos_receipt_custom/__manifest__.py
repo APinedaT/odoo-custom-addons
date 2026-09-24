@@ -19,6 +19,7 @@
         'point_of_sale._assets_pos': [
             '/pi_pos_receipt_custom/static/src/xml/**',
             '/pi_pos_receipt_custom/static/src/js/**',
+            '/pi_pos_receipt_custom/static/src/scss/**',
         ],
     },
     'installable': True,

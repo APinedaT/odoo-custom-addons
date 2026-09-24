@@ -1,0 +1,5 @@
+// Sin márgenes de página el navegador no tiene dónde dibujar sus
+// encabezados y pies (fecha, título, URL y "1/1") al imprimir el recibo.
+@page {
+    margin: 0;
+}
