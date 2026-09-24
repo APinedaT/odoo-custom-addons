@@ -22,8 +22,13 @@
         'views/layout.xml',
     ],
     'assets': {
+        # Shared with the backend: website-only variables here, no Bootstrap ones.
         'web._assets_primary_variables': [
             'theme_ferrepineda/static/src/scss/primary_variables.scss',
+        ],
+        # Frontend only: Bootstrap overrides (colors, radius, fonts).
+        'web._assets_frontend_helpers': [
+            ('prepend', 'theme_ferrepineda/static/src/scss/bootstrap_overridden.scss'),
         ],
         'web.assets_frontend': [
             'theme_ferrepineda/static/src/scss/tokens.scss',

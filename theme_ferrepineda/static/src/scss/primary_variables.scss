@@ -168,60 +168,15 @@ $o-website-values-palettes: append($o-website-values-palettes, (
 $o-website-values-palette-number: length($o-website-values-palettes);
 
 // ----------------------------------------------------------------------------
-// 5. BOOTSTRAP OVERRIDES
+// 5. BOOTSTRAP OVERRIDES → bootstrap_overridden.scss
 // ----------------------------------------------------------------------------
-// Radius — "tools & metal aren't rounded"
-$border-radius:       $pineda-radius-md;
-$border-radius-sm:    $pineda-radius-sm;
-$border-radius-lg:    $pineda-radius-lg;
-$border-radius-xl:    $pineda-radius-xl;
-$border-radius-pill:  999px;
-
-$btn-border-radius:     $pineda-radius-md;
-$btn-border-radius-sm:  $pineda-radius-md;
-$btn-border-radius-lg:  $pineda-radius-md;
-$btn-border-width:      2px;      // Button.jsx uses a 2px border on every variant
-$btn-font-weight:       700;
-
-$card-border-radius:  $pineda-radius-xl;   // Card.jsx / ProductCard.jsx
-$card-border-color:   $pineda-ink-200;     // --border-subtle
-
-$input-border-radius:      $pineda-radius-md;
-$input-border-radius-sm:   $pineda-radius-sm;
-$input-border-radius-lg:   $pineda-radius-lg;
-$input-border-color:       $pineda-ink-300;
-$input-border-width:       2px;            // Input.jsx / header search
-$input-focus-border-color: $pineda-red-500;
-$input-focus-box-shadow:   0 0 0 .2rem rgba($pineda-red-500, .45); // --focus-ring
-
-// Surfaces & text
-$body-bg:       $pineda-ink-100;   // --surface-page
-$body-color:    $pineda-ink-800;   // --text-body
-
-// Type
-$font-family-base:      $o-theme-font;
-$font-weight-base:      400;
-$line-height-base:      1.5;       // --lh-normal
-$headings-font-family:  $o-theme-headings-font;
-$headings-font-weight:  800;
-$headings-color:        $pineda-ink-950;  // --text-strong
-$headings-line-height:  1.2;       // --lh-snug
-
-// Links
-$link-color:            $pineda-red-600;  // --text-link
-$link-hover-color:      $pineda-red-700;  // --brand-pressed
-$link-decoration:       none;
-$link-hover-decoration: underline;
-
-// Selection / active state
-$component-active-bg:    $pineda-red-500;
-$component-active-color: #ffffff;
-
-// Semantic feedback (tokens/colors.css)
-$success: $pineda-success;
-$warning: $pineda-warning;
-$danger:  $pineda-danger;
-$info:    $pineda-info;
+// Deliberately NOT here: this bundle is also compiled into the backend
+// (web.assets_backend, reports, dark mode), so any Bootstrap variable set in
+// this file ($body-bg, $link-color, $success…) recolors all of Odoo, not just
+// the website. They live in bootstrap_overridden.scss, loaded through
+// web._assets_frontend_helpers. Only website-specific variables
+// ($o-color-palettes, $o-theme-*, $o-website-values-palettes) and the raw
+// $pineda-* tokens belong in this file.
 
 // ----------------------------------------------------------------------------
 // 6. ODOO HEADING SCALE
